@@ -9,10 +9,8 @@ namespace coup{
         this->Coins=0;
         this->Alive= true;
         Game.Players.push_back(Name);
-        if(Player::role()=="Captain"){
-            this->canSteal= true;
-        }
         this->Role=Player::role();
+        this->canSteal=false;
     }
     void Player::income() {
         if (this->GameName->turn()!=this->getName())

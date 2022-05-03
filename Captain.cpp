@@ -1,7 +1,9 @@
 #include "Captain.hpp"
 constexpr auto coins_coup=7;
 namespace  coup{
-    Captain::Captain(Game &Game, std::string Name) : Player(Game,Name){}
+    Captain::Captain(Game &Game, std::string Name) : Player(Game,Name){
+        this->canSteal=true;
+    }
     void Captain::block(Player &player) {
         if(!(this->isAlive()) || !(player.isAlive())){
             throw runtime_error("The players are not alive");
@@ -18,7 +20,7 @@ namespace  coup{
         if(!(this->isAlive()) || !(player.isAlive())){
             throw runtime_error("The players are not alive");
         }
-        if(this->canSteal== true){
+        if(this->canSteal== false){
             throw runtime_error("This player cannot steal");
         }
         if(player.Coins>=2){
@@ -31,7 +33,6 @@ namespace  coup{
 
         }
         this->LastAction="steal";
-        this->canSteal= false;
         this->GameName->increaseTurn();
 
     }
