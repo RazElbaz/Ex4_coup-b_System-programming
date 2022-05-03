@@ -13,7 +13,7 @@ namespace coup{
         if(player.LastAction!="coup"){
             throw runtime_error("A contessa can block the assassin coup");
         }
-        player.releaseBlockage(player.getName(),player.ReturnTO);
+        player.releaseBlockage(player.copedPlayer,player.ReturnTO);
     }
 
     string Contessa::role(){
@@ -33,6 +33,7 @@ namespace coup{
         this->Coins-=coins_coup;
         this->GameName->increaseTurn();
         this->LastAction="coup";
+        this->copedPlayer=player.getName();
     }
     Contessa::~Contessa(){}
 }
