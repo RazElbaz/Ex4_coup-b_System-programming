@@ -1,6 +1,8 @@
 #include "Ambassador.hpp"
 namespace coup{
     Ambassador::Ambassador(Game &Game, string Name): Player(Game,Name){}
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     void Ambassador::transfer(Player &player1, Player &player2){
         //checking the game roles and the players roles
         if(!this->getGameName()->TheGameStart){this->getGameName()->TheGameStart= true;}
@@ -18,8 +20,10 @@ namespace coup{
         //increase the game turn
         this->getGameName()->increaseTurn();
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     string Ambassador::role() { return "Ambassador";}
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void  Ambassador::block(Player &player) {
         //checking the game roles and the players roles
@@ -31,5 +35,7 @@ namespace coup{
         //return the coins to the player from which coins were stolen
         player.ReturnStolenCoins();
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     Ambassador::~Ambassador(){}
 }

@@ -2,6 +2,7 @@
 int const maxNumber=7;
 int const minNumber=3;
 namespace coup{
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     Duke::Duke(Game &Game, string Name) : Player(Game, Name){}
     void Duke::block(Player &player) {
         //checking the game roles and the players roles
@@ -13,6 +14,8 @@ namespace coup{
         } else {throw runtime_error("The Duke cannot block this player");}
 
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     void Duke::tax() {
         //checking the game roles and the players roles
         if(!this->getGameName()->TheGameStart){this->getGameName()->TheGameStart= true;}
@@ -27,6 +30,8 @@ namespace coup{
         //remember the last action of this player
         this->LastAction="tax";
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     string Duke::role() {return "Duke";}
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     Duke::~Duke() {}
 }

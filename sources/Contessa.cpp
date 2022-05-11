@@ -1,6 +1,7 @@
 #include "Contessa.hpp"
 namespace coup{
     Contessa::Contessa(Game &Game, string Name): Player(Game, Name){}
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     void Contessa::block(Player &player) {
         //checking the game roles and the players roles
         if(!this->getGameName()->TheGameStart){this->getGameName()->TheGameStart= true;}
@@ -13,8 +14,10 @@ namespace coup{
         //return this player to the game at the real index he wad couped
         player.ReturnToGame(player.copedPlayer,player.ReturnTO);
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     string Contessa::role(){return "Contessa";}
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Contessa::~Contessa(){}
 }

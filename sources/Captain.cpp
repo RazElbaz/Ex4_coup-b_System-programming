@@ -2,9 +2,13 @@
 int const maxNumber=2;
 int const minNumber=1;
 namespace  coup{
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     Captain::Captain(Game &Game, std::string Name) : Player(Game,Name){
         this->YouCanLock=true;
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     void Captain::block(Player &player) {
         //checking the game roles and the players roles
         if(!this->getGameName()->TheGameStart){this->getGameName()->TheGameStart= true;}
@@ -14,6 +18,8 @@ namespace  coup{
         if(player.LastAction!="steal"){throw runtime_error("Captain can block steal action");}
         player.YouCanLock= false;
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     void Captain::steal(Player &player) {
         //checking the game roles and the players roles
         if(!this->getGameName()->TheGameStart){this->getGameName()->TheGameStart= true;}
@@ -38,6 +44,9 @@ namespace  coup{
         //remember from who is stolen
         this->StolenFrom=&player;
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     string Captain::role() {return "Captain";}
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     Captain::~Captain() {}
 }

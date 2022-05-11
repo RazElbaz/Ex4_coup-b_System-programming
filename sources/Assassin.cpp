@@ -2,7 +2,8 @@
 int const maxNumber=7;
 int const minNumber=3;
     coup::Assassin::Assassin(Game &Game, string Name): Player(Game,Name){}
-    void coup::Assassin::coup(Player &player) {
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void coup::Assassin::coup(Player &player) {
         //checking the game roles and the players roles
         if(this->getGameName()->turn()!=this->Name){throw runtime_error("It's not Assassin turn");}
         if(!this->getGameName()->activeGame){throw runtime_error("The game not active");}
@@ -31,8 +32,10 @@ int const minNumber=3;
         //remember the last action of this player
         this->LastAction = "coup";
     }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     string coup::Assassin::role() {return "Assassin";}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     coup::Assassin::~Assassin() {}
 

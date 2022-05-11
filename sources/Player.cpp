@@ -68,6 +68,7 @@ namespace coup{
         if (!this->isAlive() || !player.isAlive()) { throw runtime_error("One or both of the players is not active"); }
         if (this->getGameName()->turn() != this->Name) { throw runtime_error("Its not your turn to play"); }
         if (this->Coins < seven) { throw runtime_error("You do not have enough coins to make a coup"); }
+
         //saving the index of the couped player
         for (size_t k = 0; k < GameName->Players.size(); ++k) {
             if (this->GameName->players().at(k) == player.Name) {
@@ -76,12 +77,12 @@ namespace coup{
                }}
 
                 this->getGameName()->increaseTurn();
-             //remember the last action of this player
+                //remember the last action of this player
                 this->LastAction = "coup";
                 this->Coins -= seven;
                 //now you can't block this player
                 this->YouCanLock = false;
-                //this player is dead
+                //this player is dead now
                 player.Alive = false;
                 //delete this player from the game
                 this->getGameName()->RePlayer(player.Name);
