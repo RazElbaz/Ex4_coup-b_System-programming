@@ -3525,7 +3525,7 @@ namespace detail {
             : m_signature({name, file, line}) {
         ContextState* s = g_cs;
 
-        // solutin_part2 subcase filters
+        // check subcase filters
         if(s->subcasesStack.size() < size_t(s->subcase_filter_levels)) {
             if(!matchesAny(m_signature.m_name.c_str(), s->filters[6], true, s->case_sensitive))
                 return;
@@ -3539,7 +3539,7 @@ namespace detail {
             return;
         }
 
-        // push the current signature to the stack so we can solutin_part2 if the
+        // push the current signature to the stack so we can check if the
         // current stack + the current new subcase have been traversed
         s->subcasesStack.push_back(m_signature);
         if(s->subcasesPassed.count(s->subcasesStack) != 0) {
@@ -4433,8 +4433,8 @@ namespace {
 
                 // UTF-8 territory
                 // Check if the encoding is valid and if it is not, hex escape bytes.
-                // Important: We do not solutin_part2 the exact decoded values for validity, only the encoding format
-                // First solutin_part2 that this bytes is a valid lead byte:
+                // Important: We do not check the exact decoded values for validity, only the encoding format
+                // First check that this bytes is a valid lead byte:
                 // This means that it is not encoded as 1111 1XXX
                 // Or as 10XX XXXX
                 if (c <  0xC0 ||
@@ -4449,7 +4449,7 @@ namespace {
                     hexEscapeChar(os, c);
                     break;
                 }
-                // The header is valid, solutin_part2 data
+                // The header is valid, check data
                 // The next encBytes bytes must together be a valid utf-8
                 // This means: bitpattern 10XX XXXX and the extracted value is sane (ish)
                 bool valid = true;
@@ -5709,13 +5709,13 @@ int Context::run() {
     if(p->filters[8].empty())
         p->filters[8].push_back("console");
 
-    // solutin_part2 to see if any of the registered reporters has been selected
+    // check to see if any of the registered reporters has been selected
     for(auto& curr : getReporters()) {
         if(matchesAny(curr.first.second.c_str(), p->filters[8], false, p->case_sensitive))
             p->reporters_currently_used.push_back(curr.second(*g_cs));
     }
 
-    // TODO: solutin_part2 if there is nothing in reporters_currently_used
+    // TODO: check if there is nothing in reporters_currently_used
 
     // prepend all listeners
     for(auto& curr : getListeners())
