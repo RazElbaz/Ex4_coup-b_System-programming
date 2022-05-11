@@ -22,8 +22,9 @@ int const minNumber=3;
         else {
             this->Coins -= maxNumber;
             this->YouCanLock= false;}
-
+        //increase the game index playing
         this->getGameName()->increaseTurn();
+        //delete the player
         this->getGameName()->RePlayer(player.Name);
         this->LastAction = "coup";
     }

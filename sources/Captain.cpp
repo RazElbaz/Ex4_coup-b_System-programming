@@ -31,6 +31,7 @@ namespace  coup{
             player.Coins-=minNumber;
            this->Stolen_coins=minNumber;
         }
+        //increase the game index playing
         this->getGameName()->increaseTurn();
         this->LastAction="steal";
         //remember from who is stolen

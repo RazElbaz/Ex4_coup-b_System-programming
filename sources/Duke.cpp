@@ -14,13 +14,16 @@ namespace coup{
 
     }
     void Duke::tax() {
+        //checking the game roles and the players roles
         if(!this->getGameName()->TheGameStart){this->getGameName()->TheGameStart= true;}
         if(!this->getGameName()->activeGame){throw runtime_error("The game not active");}
         if(!this->isAlive()){throw runtime_error("This player is not alive");}
         if(this->getGameName()->turn()!=this->Name){throw runtime_error("It's not Duke turn");}
         this->Coins+=minNumber;
+        //increase the game index playing
         this->getGameName()->increaseTurn();
         this->YouCanLock= false;
+        //remember the last action of this player
         this->LastAction="tax";
     }
     string Duke::role() {return "Duke";}

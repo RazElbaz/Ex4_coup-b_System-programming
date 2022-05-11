@@ -10,6 +10,7 @@ namespace coup{
         if(player.LastAction!="coup"){throw runtime_error("A contessa can block the assassin coup");}
         if(!player.YouCanLock){throw runtime_error("You cant block this player");}
 
+        //return this player to the game at the real index he wad couped
         player.ReturnToGame(player.copedPlayer,player.ReturnTO);
     }
 
