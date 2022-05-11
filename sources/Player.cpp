@@ -58,11 +58,11 @@ namespace coup{
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     coup::Game* Player::getGameName() const{
-        return this->GameName;
-    }
+        return this->GameName;}
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void Player::coup(Player &player) {
+        //checking the game roles and the players roles
         if (!this->getGameName()->TheGameStart) { this->getGameName()->TheGameStart = true; }
         if (!this->getGameName()->activeGame) { throw runtime_error("The game is not active"); }
         if (!this->isAlive() || !player.isAlive()) { throw runtime_error("One or both of the players is not active"); }
@@ -84,8 +84,7 @@ namespace coup{
             }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-            void Player::ReturnToGame(string &Name, int place) {
+    void Player::ReturnToGame(string &Name, int place) {
                 //return the couped player to his index in the game
                 this->getGameName()->ReturnToGame(this->copedPlayer, this->ReturnTO);
                 //checking the index and adding a queue respectively

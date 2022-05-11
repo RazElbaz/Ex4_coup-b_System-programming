@@ -10,9 +10,7 @@ namespace coup{
         if (player.YouCanLock && player.LastAction == "foreign aid") {
             player.YouCanLock = false;
             player.Coins -= 2;
-        } else {
-            throw runtime_error("The Duke cannot block this player");
-        }
+        } else {throw runtime_error("The Duke cannot block this player");}
 
     }
     void Duke::tax() {
@@ -25,9 +23,6 @@ namespace coup{
         this->YouCanLock= false;
         this->LastAction="tax";
     }
-    string Duke::role() {
-        return "Duke";
-    }
-
+    string Duke::role() {return "Duke";}
     Duke::~Duke() {}
 }
