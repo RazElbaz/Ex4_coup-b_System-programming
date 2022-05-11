@@ -33,6 +33,7 @@ namespace  coup{
         }
         //increase the game index playing
         this->getGameName()->increaseTurn();
+        //remember the last action of this player
         this->LastAction="steal";
         //remember from who is stolen
         this->StolenFrom=&player;

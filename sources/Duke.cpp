@@ -22,6 +22,7 @@ namespace coup{
         this->Coins+=minNumber;
         //increase the game index playing
         this->getGameName()->increaseTurn();
+        //now you can't block this player
         this->YouCanLock= false;
         //remember the last action of this player
         this->LastAction="tax";

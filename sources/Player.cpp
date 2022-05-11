@@ -76,10 +76,14 @@ namespace coup{
                }}
 
                 this->getGameName()->increaseTurn();
+             //remember the last action of this player
                 this->LastAction = "coup";
                 this->Coins -= seven;
+                //now you can't block this player
                 this->YouCanLock = false;
+                //this player is dead
                 player.Alive = false;
+                //delete this player from the game
                 this->getGameName()->RePlayer(player.Name);
             }
 

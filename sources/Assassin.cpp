@@ -13,6 +13,7 @@ int const minNumber=3;
         //If the coup meets the conditions
         if (this->Coins >= minNumber&&this->Coins<=maxNumber) {
             this->Coins -= minNumber;
+            //now you can block this player
             this->YouCanLock= true;
             this->copedPlayer=player.Name;
             player.Alive = false;
@@ -21,11 +22,13 @@ int const minNumber=3;
                     this->ReturnTO = k;}}}
         else {
             this->Coins -= maxNumber;
+            //now you can't block this player
             this->YouCanLock= false;}
         //increase the game index playing
         this->getGameName()->increaseTurn();
         //delete the player
         this->getGameName()->RePlayer(player.Name);
+        //remember the last action of this player
         this->LastAction = "coup";
     }
 
